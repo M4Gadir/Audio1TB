@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/lam"
+        android:title="Huruf Hijaiyah" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/pawprint"
+        android:title="Hewan" />
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/questionmark"
+        android:title="Entahlah" />
+
+</menu>
