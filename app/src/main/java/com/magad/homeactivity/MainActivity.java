@@ -1,9 +1,11 @@
 package com.magad.homeactivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             fm = getSupportFragmentManager();
+
             switch (item.getItemId()) {
                 case R.id.hijaiyah:
                     fm.beginTransaction().add(R.id.wadah, new HijaiyahFragment()).addToBackStack("").commit();
@@ -47,4 +50,22 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder( MainActivity.this );
+
+        builder.setTitle( "Keluar" )
+                .setMessage( "apakah anda mau keluar?" )
+                .setPositiveButton( "Quit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.super.onBackPressed();
+                    }
+                } )
+                .setNegativeButton( "Cancel",null );
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }
