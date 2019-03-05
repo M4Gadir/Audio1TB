@@ -13,36 +13,37 @@ import android.view.ViewGroup;
 
 import java.io.IOException;
 
-class HewanAdapter extends RecyclerView.Adapter<Inisialisasi> {
-    Context context;
+class EntahAdapter extends RecyclerView.Adapter<Inisialisasi> {
     MediaPlayer player;
-    String[] namaHewan = {"Kucing","Gajah","Anjing","Kuda","Kambing"};
-   int[] gambarHewan = {R.drawable.kucing,R.drawable.gajah,R.drawable.anjing,R.drawable.kuda,R.drawable.kambing};
-   int[] soundHewan = {R.raw.kucing,R.raw.gajah,R.raw.anjing,R.raw.quda,R.raw.kambing};
-    public HewanAdapter(Context context) {
+    Context context;
+    String[] namaEntah={"mobil","kapalbesar","gerbong","pesawat",};
+    int[] namaGambar = {R.drawable.car,R.drawable.cargoship,R.drawable.cargo,R.drawable.airplane};
+    int[] soundentah = {R.raw.cars,R.raw.train,R.raw.train,R.raw.airlane};
+    public EntahAdapter(Context context) {
     this.context = context;
+
     }
 
     @NonNull
     @Override
     public Inisialisasi onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(context).inflate(R.layout.isisemuarv,null );
+        View v = LayoutInflater.from(context).inflate(R.layout.isisemuarv, null);
         player = new MediaPlayer();
         return new Inisialisasi(v,context);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Inisialisasi inisialisasi, final int i) {
-        inisialisasi.iv.setImageResource(gambarHewan[i]);
-        inisialisasi.tv.setText(namaHewan[i]);
-        inisialisasi.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Uri uri = Uri.parse("android.resource://" + context.getPackageName() +"/" + soundHewan[i]);
+    public void onBindViewHolder(@NonNull final Inisialisasi inisialisasi, final int i) {
+    inisialisasi.tv.setText(namaEntah[i]);
+    inisialisasi.iv.setImageResource(namaGambar[i]);
+    inisialisasi.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Uri uri = Uri.parse("android.resource://" + context.getPackageName() + "/" + soundentah[i]);
+            if (inisialisasi.itemView.isClickable()){
                 player = new MediaPlayer();
                 player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                try{
+                try {
                     player.setDataSource(context,uri);
                 }catch (IOException e){
                     e.printStackTrace();
@@ -54,14 +55,15 @@ class HewanAdapter extends RecyclerView.Adapter<Inisialisasi> {
                     e.printStackTrace();
                 }
                 player.start();
+
             }
-        });
 
+        }
+    });
     }
-
 
     @Override
     public int getItemCount() {
-        return namaHewan.length;
+        return namaEntah.length;
     }
 }

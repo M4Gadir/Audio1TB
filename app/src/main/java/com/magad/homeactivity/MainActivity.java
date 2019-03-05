@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
             fm = getSupportFragmentManager();
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.hijaiyah:
                     fm.beginTransaction().add(R.id.wadah, new HijaiyahFragment()).addToBackStack("").commit();
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.hewan:
                     fm.beginTransaction().replace(R.id.wadah, new HewanActivity()).detach(new HijaiyahFragment()).addToBackStack("").commit();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.entahlah:
                     fm.beginTransaction().replace(R.id.wadah, new EntahActivity()).detach(new HijaiyahFragment()).addToBackStack("").commit();
                     return true;
             }

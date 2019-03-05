@@ -4,16 +4,16 @@
 
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/hijaiyah"
         android:icon="@drawable/lam"
         android:title="Huruf Hijaiyah" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/hewan"
         android:icon="@drawable/pawprint"
         android:title="Hewan" />
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/entahlah"
         android:icon="@drawable/questionmark"
         android:title="Entahlah" />
 

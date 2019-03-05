@@ -35,7 +35,7 @@ class HijaiyahAdapter extends RecyclerView.Adapter<Inisialisasi> {
     public Inisialisasi onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(konten).inflate(R.layout.isisemuarv, null);
         player = new MediaPlayer();
-        return new Inisialisasi(v, context);
+        return new Inisialisasi(v, konten);
     }
 
     @Override
